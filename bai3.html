@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Bài 3</title>
+    <style>
+        img {
+            width: 80%;
+        }
+        hr {background-color: #007bff;}
+    </style>
+</head>
+<body ng-app="myapp">
+    <div class="col-sm-7 text-center m-auto text-uppercase text-primary">
+        <h2>Danh mục sản phẩm</h5>
+        <hr>
+    </div>
+    <div ng-controller="myctrl" class="row">
+        <div class="col-sm-3 mt-2 mb-2" ng-repeat="p in products">
+            <div class="card">
+                <div class="card-header text-center">
+                    <b class="card-title">{{p.name}}</b>
+                </div>
+                <div class="card-body">
+                    <img src="images/{{p.image}}" class="img-thumbnail">
+                </div>
+                <div class="card-footer text-center">
+                    <span class="card-text">{{p.price | currency:'VNĐ '}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("myctrl", function($scope){
+        var i = 0;
+        $scope.products = [
+            {name: "Samsung Galaxy Z Fold2 5G", image:"1.jpg", price: "50000000"},
+            {name: "iPhone 12 Pro Max 512Gb", image: "2.jpg", price: "41490000"},
+            {name: "Xiaomi Redmi Note 10", image: "3.jpg", price: "5190000"},
+            {name: "OPPO A15", image: "4.jpg", price: "3490000"},
+            {name: "Vsmart Star 5", image: "5.jpg", price: "2890000"},
+            {name: "Vivo Y51 (2020)", image: "6.jpg", price: "5990000"},
+            {name: "Samsung Galaxy Note 20", image: "7.jpg", price: "21990000"},
+            {name: "OnePlus 8 Pro 5G", image: "8.jpg", price: "21990000"}
+        ]
+    })
+
+</script>
+</html>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
